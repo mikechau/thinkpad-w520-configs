@@ -1,0 +1,7 @@
+{
+    "last-edited": "1372447750", 
+    "description": "A Comprehensive Network Usage Monitor with alerts and cumulative data functions for Cinnamon 1.8", 
+    "icon": "network-workgroup", 
+    "uuid": "netusagemonitor@pdcurtis", 
+    "name": "Network Data Usage Monitor"
+}

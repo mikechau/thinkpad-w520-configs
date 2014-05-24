@@ -1,0 +1,7 @@
+{
+    "last-edited": "1370132074", 
+    "description": "Display and control cpu frequency", 
+    "icon": "gnome-settings", 
+    "uuid": "cpufreq@mtwebster", 
+    "name": "CPU Frequency Applet"
+}

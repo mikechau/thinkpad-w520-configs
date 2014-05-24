@@ -1,0 +1,40 @@
+# ~/.kde/share/config/yakuakerc
+
+[Appearance]
+BackgroundColor=23,11,46
+BackgroundColorOpacity=80
+Skin=transparent-tabs
+TerminalHighlightOnManualActivation=true
+Translucency=true
+
+[Colors]
+CurrentPalette=Web Colors
+
+[Desktop Entry]
+DefaultProfile=Shell.profile
+
+[Dialogs]
+FirstRun=false
+
+[Favorite Profiles]
+Favorites=
+
+[KFileDialog Settings]
+Height 900=510
+Recent Files[$e]=151686-transparent-tabs.tar.gz,$HOME/Downloads/151686-transparent-tabs.tar.gz
+Width 1440=816
+
+[Open-with settings]
+CompletionMode=5
+History=nemo
+
+[Shortcuts]
+next-session=Forward; Alt+Right
+options_configure=Alt+Shift+O
+options_configure_keybinding=Alt+Shift+K
+previous-session=Back; Alt+Left
+
+[Window]
+DynamicTabTitles=true
+KeepOpen=false
+Width=100
