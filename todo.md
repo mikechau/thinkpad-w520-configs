@@ -51,3 +51,6 @@ tmpfs /home/mike/.macromedia                                    tmpfs   mode=177
   - `sudo apt-get install gir1.2-gtop-2.0`
 3. windows 7 taskbar
 4. cpu freq
+
+# cinnamon themes
+install to ~/.themes
