@@ -1,0 +1,243 @@
+/*******
+ * OSD *
+ *******/
+@define-color osd_highlight #ffffff;
+@define-color osd_lowlight #525252;
+@define-color osd_base #212526;
+
+@define-color osd_fg #ededed;
+@define-color osd_bg alpha(@osd_base, 0.80);
+
+@define-color osd_bg_backdrop alpha(shade(@osd_base, 1.40), 0.90);
+
+@define-color osd_text_shadow alpha(black, 0.75);
+
+@define-color osd_toolbar_bg_a alpha(@osd_base, 0.80);
+@define-color osd_toolbar_bg_b alpha(#101010, 0.80);
+@define-color osd_toolbar_bg_c alpha(shade(@osd_base, 1.02), 0.80);
+
+@define-color osd_button_bg_a alpha(@osd_highlight, 0.16);
+@define-color osd_button_bg_b alpha(@osd_lowlight, 0.05);
+@define-color osd_button_bg_c alpha(@osd_highlight, 0.12);
+
+@define-color osd_button_bg_insensitive alpha(@osd_highlight, 0.25);
+@define-color osd_button_bg_insensitive_active alpha(@osd_highlight, 0.16);
+
+@define-color osd_button_bg_hover_a alpha(@osd_highlight, 0.28);
+@define-color osd_button_bg_hover_b alpha(@osd_lowlight, 0.14);
+@define-color osd_button_bg_hover_c alpha(@osd_highlight, 0.14);
+
+@define-color osd_button_bg_active_a alpha(@osd_lowlight, 0.18);
+@define-color osd_button_bg_active_b alpha(@osd_highlight, 0.23);
+@define-color osd_button_bg_active_c alpha(@osd_lowlight, 0.17);
+
+@define-color osd_button_bg_backdrop alpha(@osd_highlight, 0.18);
+@define-color osd_button_bg_backdrop_hover alpha(@osd_highlight, 0.25);
+@define-color osd_button_bg_backdrop_active alpha(@osd_highlight, 0.35);
+@define-color osd_button_bg_backdrop_insensitive alpha(@osd_highlight, 0.08);
+
+@define-color osd_button_fg_backdrop shade(@osd_fg, 0.70);
+@define-color osd_button_fg_backdrop_active shade(@osd_fg, 0.95);
+
+@define-color osd_button_fg shade(@osd_fg, 0.80);
+@define-color osd_button_fg_hover shade(@osd_fg, 0.96);
+@define-color osd_button_fg_active shade(@osd_fg, 1.10);
+@define-color osd_button_fg_insensitive shade(@osd_fg, 0.70);
+
+@define-color osd_button_border alpha(@osd_highlight, 0.40);
+@define-color osd_button_inset shade(@osd_fg, 0.67);
+@define-color osd_button_shadow alpha(black, 0.35);
+
+@define-color osd_trough_bg alpha(@osd_button_fg, 0.10);
+
+(The following code came from gtk-widgets.css in Zukitwo, and should probably go there in Ambaince and Radiance:)
+
+/*******
+ * OSD *
+ *******/
+GtkWindow.osd {
+ color: @osd_fg;
+ background-color: @osd_bg;
+}
+
+GtkOverlay.osd {
+ background-color: transparent;
+}
+
+.osd .button,
+.osd .button:active {
+ border-width: 1px;
+ border-style: solid;
+ border-image: none;
+ border-color: @osd_button_border;
+ border-radius: 5px;
+}
+
+.osd .button {
+ padding: 4px;
+
+ background-image: linear-gradient(to bottom,
+  @osd_button_bg_a,
+  @osd_button_bg_b 68%,
+  @osd_button_bg_c
+  );
+
+ color: @osd_button_fg;
+
+ text-shadow: 0 -1px @osd_button_shadow;
+ icon-shadow: 0 -1px @osd_button_shadow;
+}
+
+.osd .button,
+.osd .button:prelight,
+.osd .button:active {
+ background-color: transparent;
+}
+
+.osd .button:insensitive {
+ background-image: none;
+ background-color: @osd_button_bg_insensitive;
+}
+
+.osd .button:active:insensitive {
+ background-image: none;
+ background-color: @osd_button_bg_insensitive_active;
+}
+
+.osd .button *:hover {
+ color: @osd_button_fg_hover;
+}
+
+.osd .button *:active,
+.osd .button *:hover:active {
+ color: @osd_button_fg_active;
+}
+
+.osd .button *:insensitive,
+.osd .button *:insensitive:active {
+ color: @osd_button_fg_insensitive;
+}
+
+.osd .button:hover {
+ background-image: linear-gradient(to bottom,
+  @osd_button_bg_hover_a,
+  @osd_button_bg_hover_b 68%,
+  @osd_button_bg_hover_c
+ );
+}
+
+.osd .button:active,
+.osd .button:active:hover,
+.osd GtkMenuButton.button:active {
+ background-image: linear-gradient(to bottom,
+  @osd_button_bg_active_a,
+  @osd_button_bg_active_b 68%,
+  @osd_button_bg_active_c
+  );
+}
+
+.osd GtkMenuButton.button:active {
+ background-color: transparent;
+ border-color: @osd_button_border;
+}
+
+.osd GtkMenuButton.button *:active {
+ color: @osd_button_fg_active;
+ text-shadow: 0 -1px @osd_button_shadow;
+}
+
+.osd.toolbar {
+ color: @osd_fg;
+ text-shadow: 0 1px @osd_text_shadow;
+
+ padding: 10px;
+ border-style: none;
+ border-radius: 7px;
+ background-image: linear-gradient(to bottom,
+  @osd_toolbar_bg_a,
+  @osd_toolbar_bg_b 63%,
+  @osd_toolbar_bg_c
+  );
+ background-color: transparent;
+
+ -GtkToolbar-button-relief: normal;
+}
+
+.osd.toolbar .button {
+ padding: 4px;
+ border-width: 1px 0;
+ border-radius: 0;
+ box-shadow: inset -1px 0 @osd_button_inset;
+}
+
+.osd.toolbar .button:first-child {
+ border-radius: 5px 0 0 5px;
+ border-width: 1px 0 1px 1px;
+ box-shadow: inset -1px 0 @osd_button_inset;
+}
+
+.osd.toolbar .button:last-child {
+ box-shadow: none;
+ border-radius: 0 5px 5px 0;
+ border-width: 1px 1px 1px 0;
+}
+
+.osd.toolbar .button:only-child,
+.osd.toolbar GtkToolButton .button,
+.osd.toolbar GtkToolButton:only-child .button,
+.osd.toolbar GtkToolButton:last-child .button,
+.osd.toolbar GtkToolButton:first-child .button {
+ border-width: 1px;
+ border-radius: 5px;
+ border-style: solid;
+
+ box-shadow: none;
+}
+
+.osd.toolbar .separator {
+ color: shade(@osd_lowlight, 0.80);
+}
+
+/* used by gnome-settings-daemon's media-keys OSD */
+.osd.trough {
+ background-color: @osd_trough_bg;
+}
+
+.osd.progressbar {
+ background-color: @osd_fg;
+}
+
+.osd .scale.trough {
+ border-color: @osd_button_border;
+ background-image: linear-gradient(to bottom,
+  shade(@osd_button_border, 0.70),
+  shade(@osd_button_border, 0.90)
+  );
+ background-color: transparent;
+}
+
+.osd GtkProgressBar {
+ padding: 0;
+ -GtkProgressBar-xspacing: 0;
+ -GtkProgressBar-yspacing: 3px;
+ -GtkProgressBar-min-horizontal-bar-height: 3px;
+}
+
+.osd GtkProgressBar.trough {
+ padding: 0;
+ border-image: none;
+ border-style: none;
+ border-width: 0;
+ background-image: none;
+ background-color: transparent;
+ border-radius: 0;
+}
+
+.osd GtkProgressBar.progressbar {
+ border-style: none;
+ background-color: @selected_bg_color;
+ background-image: none;
+ border-radius: 0;
+}
+
+
