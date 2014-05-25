@@ -3,7 +3,7 @@
 ##################################
 # KERNEL
 ##################################
-NEW_KERNEL=3141
+NEW_KERNEL=3144
 CURRENT_KERNEL=$(uname -r|cut -d\- -f1|tr -d '.'| tr -d '[A-Z][a-z]')
 
 if [[ $CURRENT_KERNEL -ne $NEW_KERNEL ]]; then
@@ -50,6 +50,7 @@ FLASH_CHECK=$(ls -l /usr/lib/firefox-addons/plugins | grep libflashplayer.so -ci
 if [[ $FLASH_CHECK -eq 0 ]]; then
   echo "---->  No Flash detected..."
   ./dependencies/post/flash.sh
+  exit 0
 fi
 
 ##################################
@@ -69,6 +70,8 @@ fi
 
 UNITY=$(which unity)
 if [[ -z $UNITY ]]; then
+  echo "----> Theres no Unity! Yay!"
+else
   echo "----> Unity found..."
   # actions
   ./actions/show_startup_applications.sh
