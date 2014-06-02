@@ -2,6 +2,7 @@
 
 Maybe someday I will convert all this into a puppet or chef...but until that day here is a bunch of shell scripts. You are welcome and encouraged to convert all this into puppet or chef and do a pull request. ;)
 
+NOTE: These scripts are pretty buggy and probably don't work properly as intended. Use them at your own risk or more as a baseline/guide for what you could do. Some of the order is also incorrect, maybe I will fix it at a later time.
 
 ## Folder Structure
 ```
